@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Pomodoro timer</title>
+</head>
+<body class="darkMode__background lightMode__background darkMode__colorFont lightMode__colorFont">
+    <header>
+        <section class="header-section">
+            <img class="header__icon" src="./assets/icons/processing32px_allLightYellow.png" alt="Icon consisting of a process arrow and an hourglass in yellow.">
+            <h1>Pomodoro timer</h1>
+            <label for="header__toggle-switch" class="toggle-switch">
+                <span class="header__toggle-switch__body"></span>
+                <button class="header__toggle-switch__button">Switch</button>
+            </label>
+        </section>
+    </header>
+    <main class="content-main">
+        <nav class="navbar-section">
+            <ul class="navbar__list-buttons">
+                <li><button class="navbar__list-buttons__pomodoro">Pomodoro</button></li>
+                <li><button class="navbar__list-buttons__short-break">Short Break</button></li>
+                <li><button class="navbar__list-buttons__long-break">Long Break</button></li>
+            </ul>
+        </nav>
+        <section class="time-section">
+            <p class="time__display">25:00</p>
+            <button class="time__start-button">START</button>
+            <p class="time__message">Time to work</p>
+        </section>
+        <section class="tasks-section">
+            <button class="tasks__Add-task-button"><i class="fa fa-plus-circle icon-plus"></i>Add tasks</button>
+        </section>
+        <section class="info-Pomodoro">
+            <article class="info-Pomodoro__what-is-it">
+                <h2>What is Pomodoro Technique?</h2>
+                <p>The Pomodoro Technique is created by <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">Francesco Cirillo</a> for a more productive way to work and study. The technique uses a timer to break down work into intervals, traditionally 25 minutes in length, separated by short breaks. Each interval is known as a pomodoro, from the Italian word for 'tomato', after the tomato-shaped kitchen timer that Cirillo used as a university student.</p>
+            </article>
+            <article class="info-Pomodoro__how-to-use">
+                <h2>How to use the Pomodoro Timer?</h2>
+                <ol class="info-Pomodoro__how-to-use__steps">
+                    <li>Add tasks to work on today.</li>
+                    <li>Select a task to work on.</li>
+                    <li>Start timer and focus on the task for 25 minutes.</li>
+                    <li>Take a break for 5 minutes (or, exceptionally, a long break for 15 minutes) when the alarm ring.</li>
+                    <li>Iterate 3-5 until you finish the tasks.</li>
+                </ol>
+            </article>
+        </section>
+    </main>
+    <footer class="footer-section">
+        <h5>&copy; Copyright 2020 · Estefanía Cordeiro Brión</h5>
+    </footer>
+    <script src="./scripts/index.js"></script>
+</body>
+</html>
