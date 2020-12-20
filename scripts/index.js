@@ -7,6 +7,7 @@ let timeLimit = time * 60;
 // and subtract from the timeLimit
 let timePassed = 0;
 let timeLeft = timeLimit;
+let timeInterval = null;
 
 
 /* Basic markup and styles countdown and setting up time label */
@@ -22,6 +23,18 @@ document.getElementById('time__display').innerHTML = `
     ${formatTime(timeLeft)}</span>
 </section>
 `;
+
+startTime();
+
+function startTime() {
+    timeInterval = setInterval(() => {
+        // The amount of time passed increments by one
+        timePassed += 1;
+        timeLeft = timeLimit - timePassed;
+        // The time left label is updated
+        document.getElementById("base-time-label").innerHTML = formatTime(timeLeft);
+    }, 1000);
+}
 
 function formatTime(time) {
     // The largest round integer less than or equal to the result of time divided being by 60.
