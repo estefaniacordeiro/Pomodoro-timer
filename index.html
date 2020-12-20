@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Pomodoro timer</title>
 </head>
-<body class="darkMode__background lightMode__background darkMode__colorFont lightMode__colorFont">
+<body class="darkMode__background darkMode__colorFont darkMode__colorFocus lightMode__background lightMode__colorFont lightMode__colorFocus">
     <header>
         <section class="header-section">
             <img class="header__icon" src="./assets/icons/processing32px_allBlack.png" alt="Icon consisting of a process arrow and an hourglass in yellow.">
@@ -29,7 +29,7 @@
             </ul>
         </nav>
         <section class="time-section">
-            <p class="time__display">25:00</p>
+            <p class="time__display" id="time__display">25:00</p>
             <button class="time__start-button">START</button>
             <p class="time__message">Time to work!</p>
         </section>
