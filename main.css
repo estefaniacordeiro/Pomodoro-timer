@@ -234,18 +234,37 @@ h5 {
     /* align-self: center; */
     border: 1px solid black;
 }
+/* Flips the svg and makes the animation to move left-to-right */
+.base-time__svg {
+    transform: scaleX(-1);
+}
 /* Removes SVG styling that would hide the time label */
 .base-time__circle {
     fill: none;
     stroke: none;
 }
-
 /* The SVG path that displays the timer's progress */
 .base-time__path-elapsed {
     stroke-width: 0.3rem;
     stroke: var(--lightMode__colorFont);
 }
-
+/* Styles of second ring (for animation) */
+.base-time__path-remaining {
+    /* Use to animate the length of remaining time line */
+    stroke-dasharray: 283;
+    /* Just as thick as the original ring */
+    stroke-width: 0.3rem;
+    /* Rounds the line endings to create a seamless circle */
+    stroke-linecap: round;
+    /* Makes sure the animation starts at the top of the circle */
+    transform: rotate(90deg);
+    transform-origin: center;
+    /* One second aligns with the speed of the countdown timer */
+    transition: 1s linear all;
+    /* Allows the ring to change color when the color value updates */
+    stroke: red;
+}
+/* Show number of display */
 .base-time__label {
     position: absolute;
     /* Size should match the parent container */

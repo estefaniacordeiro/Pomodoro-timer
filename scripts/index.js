@@ -1,4 +1,13 @@
 'use strict';
+
+const COLOR_CODES_RING = {
+    info: {
+        color: "green"
+    }
+};
+// Create initial color for remaining time path.
+let remainingPathColor = COLOR_CODES_RING.info.color;
+
 // Declaring variable of interval of time (pomodoro = 25 minutes)
 let time = 25;
 // Start with an initial value of 25 minutes
@@ -15,7 +24,15 @@ document.getElementById('time__display').innerHTML = `
 <section class="base-time">
     <svg class="base-time__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         <g class="base-time__circle">
-            <circle class="base-time__path-elapsed" cx="50" cy="50" r="45" />
+            <circle class="base-time__path-elapsed" cx="50" cy="50" r="45"></circle>
+            <path id="base-time-path-remaining" class="base-time__path-remaining ${remainingPathColor}"
+            d="
+            M 50, 50
+            m -45, 0
+            a 45,45 0 1,0 90,0
+            a 45,45 0 1,0 -90,0
+            ">
+            </path>
         </g>
     </svg>
     <!-- Remaining time label -->
