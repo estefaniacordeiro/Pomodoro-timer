@@ -1,0 +1,263 @@
+/* Preguntar a Alfredo si es conveniente aplicar esta forma de resetear los estilos predeterminados. */
+/* http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+
+/* html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+} */
+/* HTML5 display-role reset for older browsers */
+/* article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+} */
+
+/* Initialize styles CSS */
+* {
+    /* Preguntar a ALfredo porqué al resetear los estilos, los números y símbolos de las listas quedan fuera del documento.Además, al desactivar padding y margin, el contenido de expande al 100% del alto, sino no. NO ENTIENDO.*/
+    /* padding: 0;
+    margin: 0; */
+    box-sizing: border-box;
+}
+a {
+    color: inherit;
+}
+
+/* Declaration of global variables to use dark mode ou light mode */
+:root {
+    --darkMode__background: black;
+    --darkMode__colorFont: #FFE46B;
+    --darkMode__colorFocus: black;
+    --lightMode__background: #FFE46B;
+    --lightMode__colorFont: black;
+    --lightMode__colorFocus: rgb(233, 197, 37);
+}
+
+/* Html style */
+html {
+    height: 100%;
+    width: 100%;
+    /* Pregunta Alfredo: si activo position relative y en el footer position absolute, el footer se coloca fuera del body y este no consigo que ocupe el mismo ancho que el resto del main */
+    /* position: relative; */
+}
+
+/* Apply centering document */
+body {
+    background-color: var(--lightMode__background);
+    color: var(--lightMode__colorFont);
+    margin: 0.5rem 0.5rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.8em;
+    border: 1px solid rebeccapurple;
+}
+
+/* Header style */
+.header-section {
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem;
+}
+h1 {
+    font-size: 1.1em;
+    padding: 0 0.2rem;
+}
+.toggle-switch {
+    margin-left: auto;
+}
+
+/* Main content style */
+.content-main {
+    padding: 0 0.3rem;
+}
+.time-section {
+    text-align: center;
+}
+/* .navbar-section {
+    border: 1px solid black;
+    padding:0;
+} */
+.navbar__list-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 0.5rem 0;
+    margin: 0;
+    border: none;
+    background: none;
+}
+.navbar__list-button {
+    border: none;
+    background: none;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    cursor: pointer;
+    border-radius: 0.3rem;
+}
+/* Pregunta Alfredo: debería usar "active" en CSS para que mantenga siempre el foco  o logo hago desde JS. Ojo: é duplicado las clases en el HTML del button de pomodoro, si esto se elimina, eliminarlo también en el HTML*/
+/* .navbar__list-button-active {
+    outline: none;
+    border: none;
+    background: none;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    cursor: pointer;
+    border-radius: 0.3rem;
+    background: none rgba(233, 197,37, 0.7);
+} */
+.navbar__list-button:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px dotted var(--lightMode__colorFont);
+    background: none;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    cursor: pointer;
+    border-radius: 0.3rem;
+    background: none var(--lightMode__colorFocus, 0.7);
+}
+.time-section {
+    border: 1px solid rebeccapurple;
+}
+.time__display {
+    display: flex;
+    justify-content: center;
+    font-size: 5em;
+    border: 1px solid red;
+}
+.time__start-button{
+    border: none;
+    background: none;
+    padding: 0.7rem 0.7rem;
+    border: 4px outset var(--lightMode__colorFocus);
+    border-radius: 0.3rem;
+    font-size: 1rem;
+}
+.time__start-button:focus {
+    outline: none;
+    /* Pregunta Alfredo: en el caso de un rgba se estaría aplicando correctamente el 0.7 de opacidad al usar la variable como un rgb como variable? */
+    background: none var(--lightMode__colorFocus, 0.7);
+    border: 4px inset var(--lightMode__colorFocus);
+    cursor: pointer;
+    /* padding: 0.7rem 0.7rem;
+    border: 2px outset #E9C525;
+    border-radius: 0.3rem;
+    font-size: 1rem; */
+}
+.time__message {
+    font-weight: bold;
+    font-size: 1.3em;
+}
+.tasks-section {
+    text-align: center;
+    padding: 0 auto;
+}
+.tasks__Add-task-button{
+    border: none;
+    background: none;
+    font-size: 1.2em;
+    width: 100%;
+    padding: 0.7rem 0;
+    border: 1px dotted var(--lightMode__colorFont);
+    border-radius: 0.3rem;
+}
+.tasks__Add-task-button:focus {
+    outline: none;
+    cursor: pointer;
+    background: none var(--lightMode__colorFocus, 0.7);
+}
+.fa {
+    padding: 0 0.3rem;
+}
+.info-Pomodoro {
+    text-align: justify;
+}
+.info-Pomodoro__how-to-use__steps {
+    padding: 0;
+    margin-left: 1rem;
+}
+
+/* Footer style */
+/* .footer-section {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border: 1px solid red;
+} */
+h5 {
+    text-align: center;
+}
+
+/************* Start: CSS basic design countdown *************/
+/* Sets the containers height and width */
+.base-time {
+    position: relative;
+    height: 15rem;
+    width: 15rem;
+    /* text-align: center; */
+    /* align-self: center; */
+    border: 1px solid black;
+}
+/* Removes SVG styling that would hide the time label */
+.base-time__circle {
+    fill: none;
+    stroke: none;
+}
+
+/* The SVG path that displays the timer's progress */
+.base-time__path-elapsed {
+    stroke-width: 0.3rem;
+    stroke: var(--lightMode__colorFont);
+}
+
+.base-time__label {
+    position: absolute;
+    /* Size should match the parent container */
+    height: 15rem;
+    width: 15rem;
+    /* Keep the label aligned to the top */
+    top: 0;
+    /* Create a flexible box that centers content vertically and horizontally */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Sort of an arbitrary number; adjust to your liking */
+    font-size: 1em;
+}
+/************* End: CSS basic design countdown *************/
