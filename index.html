@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Pomodoro timer</title>
 </head>
 <body class="darkMode__background lightMode__background darkMode__colorFont lightMode__colorFont">
     <header>
         <section class="header-section">
-            <img class="header__icon" src="./assets/icons/processing32px_allLightYellow.png" alt="Icon consisting of a process arrow and an hourglass in yellow.">
+            <img class="header__icon" src="./assets/icons/processing32px_allBlack.png" alt="Icon consisting of a process arrow and an hourglass in yellow.">
             <h1>Pomodoro timer</h1>
             <label for="header__toggle-switch" class="toggle-switch">
                 <span class="header__toggle-switch__body"></span>
@@ -21,26 +23,26 @@
     <main class="content-main">
         <nav class="navbar-section">
             <ul class="navbar__list-buttons">
-                <li><button class="navbar__list-buttons__pomodoro">Pomodoro</button></li>
-                <li><button class="navbar__list-buttons__short-break">Short Break</button></li>
-                <li><button class="navbar__list-buttons__long-break">Long Break</button></li>
+                <li><button class="navbar__list-button navbar__list-button-active">Pomodoro</button></li>
+                <li><button class="navbar__list-button">Short Break</button></li>
+                <li><button class="navbar__list-button">Long Break</button></li>
             </ul>
         </nav>
         <section class="time-section">
             <p class="time__display">25:00</p>
             <button class="time__start-button">START</button>
-            <p class="time__message">Time to work</p>
+            <p class="time__message">Time to work!</p>
         </section>
         <section class="tasks-section">
             <button class="tasks__Add-task-button"><i class="fa fa-plus-circle icon-plus"></i>Add tasks</button>
         </section>
         <section class="info-Pomodoro">
             <article class="info-Pomodoro__what-is-it">
-                <h2>What is Pomodoro Technique?</h2>
+                <h4>What is Pomodoro Technique?</h4>
                 <p>The Pomodoro Technique is created by <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">Francesco Cirillo</a> for a more productive way to work and study. The technique uses a timer to break down work into intervals, traditionally 25 minutes in length, separated by short breaks. Each interval is known as a pomodoro, from the Italian word for 'tomato', after the tomato-shaped kitchen timer that Cirillo used as a university student.</p>
             </article>
             <article class="info-Pomodoro__how-to-use">
-                <h2>How to use the Pomodoro Timer?</h2>
+                <h4>How to use the Pomodoro Timer?</h4>
                 <ol class="info-Pomodoro__how-to-use__steps">
                     <li>Add tasks to work on today.</li>
                     <li>Select a task to work on.</li>
