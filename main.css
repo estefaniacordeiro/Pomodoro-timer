@@ -224,7 +224,7 @@ h5 {
     text-align: center;
 }
 
-/************* CSS basic design countdown *************/
+/************* Start: CSS basic design countdown *************/
 /* Sets the containers height and width */
 .base-time {
     position: relative;
@@ -236,12 +236,28 @@ h5 {
 }
 /* Removes SVG styling that would hide the time label */
 .base-time__circle {
-fill: none;
-stroke: none;
+    fill: none;
+    stroke: none;
 }
 
 /* The SVG path that displays the timer's progress */
 .base-time__path-elapsed {
-stroke-width: 0.3rem;
-stroke: var(--lightMode__colorFont);
+    stroke-width: 0.3rem;
+    stroke: var(--lightMode__colorFont);
 }
+
+.base-time__label {
+    position: absolute;
+    /* Size should match the parent container */
+    height: 15rem;
+    width: 15rem;
+    /* Keep the label aligned to the top */
+    top: 0;
+    /* Create a flexible box that centers content vertically and horizontally */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Sort of an arbitrary number; adjust to your liking */
+    font-size: 1em;
+}
+/************* End: CSS basic design countdown *************/
