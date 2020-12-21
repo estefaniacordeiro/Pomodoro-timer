@@ -34,7 +34,12 @@
             <p class="time__message">Time to work!</p>
         </section>
         <section class="tasks-section">
-            <button class="tasks__Add-task-button"><i class="fa fa-plus-circle icon-plus"></i>Add tasks</button>
+            <section class="tasks-section__title">
+                <h3>List of tasks</h3>
+                <input type="text" class="tasks__title__input" id="tasks__title__input" placeholder="Introduce a task...">
+                <button class="tasks__title__add-button" id="tasks__title__add-button">Add</button>
+            </section>
+            <ul class="tasks__list" id="tasks__list"></ul>
         </section>
         <section class="info-Pomodoro">
             <article class="info-Pomodoro__what-is-it">
@@ -57,5 +62,6 @@
         <h5>&copy; Copyright 2020 · Estefanía Cordeiro Brión</h5>
     </footer>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/tasks.js"></script>
 </body>
 </html>

@@ -1,5 +1,7 @@
 'use strict';
 
+let pomodoro = document.getElementById('')
+
 // Declaring variable of interval of time (pomodoro = 25 minutes)
 let time = 1;
 // Start with an initial value of 25 minutes
