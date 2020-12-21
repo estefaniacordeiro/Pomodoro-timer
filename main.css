@@ -1,58 +1,5 @@
-/* Preguntar a Alfredo si es conveniente aplicar esta forma de resetear los estilos predeterminados. */
-/* http://meyerweb.com/eric/tools/css/reset/
-v2.0 | 20110126
-License: none (public domain)
-*/
-
-/* html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-} */
-/* HTML5 display-role reset for older browsers */
-/* article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-} */
-
 /* Initialize styles CSS */
 * {
-    /* Preguntar a ALfredo porqué al resetear los estilos, los números y símbolos de las listas quedan fuera del documento.Además, al desactivar padding y margin, el contenido de expande al 100% del alto, sino no. NO ENTIENDO.*/
-    /* padding: 0;
-    margin: 0; */
     box-sizing: border-box;
 }
 a {
@@ -73,8 +20,6 @@ a {
 html {
     height: 100%;
     width: 100%;
-    /* Pregunta Alfredo: si activo position relative y en el footer position absolute, el footer se coloca fuera del body y este no consigo que ocupe el mismo ancho que el resto del main */
-    /* position: relative; */
 }
 
 /* Apply centering document */
@@ -125,17 +70,6 @@ h1 {
     cursor: pointer;
     border-radius: 0.3rem;
 }
-/* Pregunta Alfredo: debería usar "active" en CSS para que mantenga siempre el foco  o logo hago desde JS. Ojo: é duplicado las clases en el HTML del button de pomodoro, si esto se elimina, eliminarlo también en el HTML*/
-/* .navbar__list-button-active {
-    outline: none;
-    border: none;
-    background: none;
-    padding-top: 0.4rem;
-    padding-bottom: 0.4rem;
-    cursor: pointer;
-    border-radius: 0.3rem;
-    background: none rgba(233, 197,37, 0.7);
-} */
 .navbar__list-button:focus {
     outline: none;
     box-shadow: none;
@@ -214,40 +148,124 @@ h1 {
 }
 .time__start-button:focus {
     outline: none;
-    /* Pregunta Alfredo: en el caso de un rgba se estaría aplicando correctamente el 0.7 de opacidad al usar la variable como un rgb como variable? */
-    background: none var(--lightMode__colorFocus, 0.7);
+    background: none var(--lightMode__colorFocus);
     border: 4px inset var(--lightMode__colorFocus);
     cursor: pointer;
-    /* padding: 0.7rem 0.7rem;
-    border: 2px outset #E9C525;
-    border-radius: 0.3rem;
-    font-size: 1rem; */
 }
 .time__message {
     font-weight: bold;
     font-size: 1.3em;
 }
-.tasks-section {
+
+/************* Start: CSS tasks section *************/
+.tasks-section__title {
+    background-color: lightgrey;
     text-align: center;
-    padding: 0 auto;
+    padding: 0 0.3rem 0.3rem 0.3rem;
+    border-radius: 0.3rem 0.3rem 0 0;
 }
-.tasks__Add-task-button{
-    border: none;
-    background: none;
+/* Clear floats after the header */
+.tasks-section__title:after {
+    content: "";
+    display: table;
+    clear: both;
+    font-size: 1.1em;
+}
+h3 {
+    margin:0;
+    padding: 0.5rem 0;
     font-size: 1.2em;
-    width: 100%;
-    padding: 0.7rem 0;
-    border: 1px dotted var(--lightMode__colorFont);
-    border-radius: 0.3rem;
 }
-.tasks__Add-task-button:focus {
+.tasks__title__input {
+    margin: 0;
+    border: 1px solid lightgrey;
+    height: 100%;
+    width: 75%;
+    padding: 0.3rem;
+    float: left;
+}
+.tasks__title__input:focus {
+    outline: none;
+}
+.tasks__title__add-button{
+    width: 25%;
+    background: #cecece;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 0.3rem;
+    border: 2px outset #cecece;
+}
+.tasks__title__add-button:hover {
+    background-color: #bbb;
+}
+.tasks__title__add-button:focus {
     outline: none;
     cursor: pointer;
-    background: none var(--lightMode__colorFocus, 0.7);
+    border: 2px inset #cecece;
 }
-.fa {
-    padding: 0 0.3rem;
+/* Remove margins and padding from the list */
+.tasks__list {
+    margin: 0;
+    padding: 0;
 }
+/* Style the list items */
+.tasks__list > li {
+    cursor: pointer;
+    position: relative;
+    list-style-type: none;
+    padding: 0.5rem 0.5rem 0.5rem 2rem;
+    background: #eee;
+    transition: 0.2s;
+
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+/* Set all odd list items to a different color (zebra-stripes) */
+.tasks__list > li:nth-child(odd) {
+    background: #f9f9f9;
+}
+/* Darker background-color on hover */
+.tasks__list > li:hover {
+    background: #ddd;
+}
+/* When clicked on, add a background color and strike out text */
+.tasks__list > li.checked {
+    background: #888;
+    color: #fff;
+    text-decoration: line-through;
+    padding: 0.5rem 0.5rem 0.5rem 2.5rem;
+}
+/* Add a "checked" mark when clicked on */
+.tasks__list > li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 3px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 1rem;
+    width: 0.3rem;
+}
+/* Style the close button */
+.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0.5rem 0.8rem;
+}
+.close:hover {
+    background-color: #bbb;
+    color: white;
+}
+/************* End: CSS tasks section *************/
+
 .info-Pomodoro {
     text-align: justify;
 }
@@ -257,12 +275,7 @@ h1 {
 }
 
 /* Footer style */
-/* .footer-section {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    border: 1px solid red;
-} */
 h5 {
     text-align: center;
+    padding-bottom: 1rem;
 }
