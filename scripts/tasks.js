@@ -34,6 +34,11 @@ function newElement() {
         // Save the tasks into array
         arrayListTasks.push(inputValue);
         console.log(arrayListTasks);
+
+        // Save the tasks in local storage
+        let tasksList = JSON.stringify(arrayListTasks);
+        localStorage.setItem('tasks', tasksList);
+        /* refreshTasksWithLocalStorage(); */
     }
     // Initialize the input of add tasks.
     inputTask.value = "";
@@ -59,9 +64,20 @@ function newElement() {
         let index = li.dataset.index;
         console.log(index);
         console.log(arrayListTasks.splice(index, 1));
+        /* refreshTasksWithLocalStorage(); */
         console.log(arrayListTasks);
     })
 }
+
+/* Function to take events from localStorage */
+/* function refreshTasksWithLocalStorage() {
+    if(localStorage.getItem('tasks') === null) {
+        let tasksList = JSON.stringify(arrayListTasks);
+        localStorage.setItem('tasks', tasksList);
+    } else {
+        let tasks = JSON.parse(localStorage.getItem("tasks"));
+    }
+} */
 
 function add() {
     count += 1;
