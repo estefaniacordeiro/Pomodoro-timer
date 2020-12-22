@@ -38,7 +38,6 @@ function newElement() {
         // Save the tasks in local storage
         let tasksList = JSON.stringify(arrayListTasks);
         localStorage.setItem('tasks', tasksList);
-        /* refreshTasksWithLocalStorage(); */
     }
     // Initialize the input of add tasks.
     inputTask.value = "";
@@ -62,22 +61,24 @@ function newElement() {
     span.addEventListener('click', function() {
         li.style.display = "none";
         let index = li.dataset.index;
-        console.log(index);
-        console.log(arrayListTasks.splice(index, 1));
-        /* refreshTasksWithLocalStorage(); */
+        const replaceTextContent = li.textContent.replace("×", "");
+        console.log({replaceTextContent});
+        let indexCurrent= arrayListTasks.indexOf(replaceTextContent);
+        /* console.log(index); */
+        /* console.log(arrayListTasks.splice(index, 1));
+        console.log(arrayListTasks); */
+        let currentArrayListTasks = arrayListTasks.splice(indexCurrent, 1);
+        console.log(currentArrayListTasks);
         console.log(arrayListTasks);
+        refreshTasksWithLocalStorage(arrayListTasks);
     })
 }
 
 /* Function to take events from localStorage */
-/* function refreshTasksWithLocalStorage() {
-    if(localStorage.getItem('tasks') === null) {
-        let tasksList = JSON.stringify(arrayListTasks);
-        localStorage.setItem('tasks', tasksList);
-    } else {
-        let tasks = JSON.parse(localStorage.getItem("tasks"));
-    }
-} */
+function refreshTasksWithLocalStorage(arrayListTasks) {
+    const tasksList = JSON.stringify(arrayListTasks);
+    localStorage.setItem('tasks', tasksList);
+}
 
 function add() {
     count += 1;

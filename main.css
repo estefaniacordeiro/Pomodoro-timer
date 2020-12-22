@@ -152,6 +152,9 @@ h1 {
     border: 4px inset var(--lightMode__colorFocus);
     cursor: pointer;
 }
+.audio {
+    display: none;
+}
 .time__message {
     font-weight: bold;
     font-size: 1.3em;

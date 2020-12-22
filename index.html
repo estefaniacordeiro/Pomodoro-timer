@@ -23,15 +23,16 @@
     <main class="content-main">
         <nav class="navbar-section">
             <ul class="navbar__list-buttons">
-                <li><button class="navbar__list-button navbar__list-button-active">Pomodoro</button></li>
-                <li><button class="navbar__list-button">Short Break</button></li>
-                <li><button class="navbar__list-button">Long Break</button></li>
+                <button class="navbar__list-button navbar__list-button-active" id="pomodoro-button">Pomodoro</button>
+                <button class="navbar__list-button" id="shortBreak-button">Short Break</button>
+                <button class="navbar__list-button" id="longBreak-button">Long Break</button>
             </ul>
         </nav>
         <section class="time-section">
             <p class="time__display" id="time__display"></p>
-            <button class="time__start-button">START</button>
-            <p class="time__message">Time to work!</p>
+            <button class="time__start-button" id="time__start-button">START</button>
+            <p class="time__message"></p>
+            <audio class="audio" id="audio" src="./assets/sound/alarm_bird_clock.mp3" controls></audio>
         </section>
         <section class="tasks-section">
             <section class="tasks-section__title">
