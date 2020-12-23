@@ -118,9 +118,9 @@ function chooseOptionsTimer(e) {
             timeLimit = time * 60;
             break;
         case "shortBreak-button":
-            e.path[3].children[1].children[0].children[0].children[1].innerText = "05:00";
+            e.path[3].children[1].children[0].children[0].children[1].innerText = "01:00";
             e.path[3].children[1].children[2].innerText = "Coffee break!";
-            time = 5;
+            time = 1;
             timeLimit = time * 60;
             break;
         case "longBreak-button":
@@ -134,7 +134,6 @@ function chooseOptionsTimer(e) {
 
 //When the button "pomodoro" will clicked, will run this function
 function timeHandler(e, timeLimit) {
-    console.log({e});
     if(startButton.innerText == "START"){
         startTime(timeLimit);
         startButton.style.backgroundColor = "rgb(233, 197, 37)";

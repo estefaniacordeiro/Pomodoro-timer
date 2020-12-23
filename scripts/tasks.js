@@ -16,11 +16,9 @@ function newElement() {
     let span = document.createElement("span");
 
     let inputValue = inputTask.value;
-    /* console.log(inputValue); */
 
     let textTask = document.createTextNode(inputValue);
     let txt = document.createTextNode("\u00D7");
-    /* console.log(textTask); */
 
     li.appendChild(textTask);
     if (inputValue === '') {
@@ -29,11 +27,9 @@ function newElement() {
         listTasks.appendChild(li);
         let countIndex = add(count);
         li.dataset.index = countIndex - 1;
-        console.log(li);
 
         // Save the tasks into array
         arrayListTasks.push(inputValue);
-        console.log(arrayListTasks);
 
         // Save the tasks in local storage
         let tasksList = JSON.stringify(arrayListTasks);
@@ -60,16 +56,9 @@ function newElement() {
     // Click on a close button to hide the current list item
     span.addEventListener('click', function() {
         li.style.display = "none";
-        let index = li.dataset.index;
         const replaceTextContent = li.textContent.replace("×", "");
-        console.log({replaceTextContent});
         let indexCurrent= arrayListTasks.indexOf(replaceTextContent);
-        /* console.log(index); */
-        /* console.log(arrayListTasks.splice(index, 1));
-        console.log(arrayListTasks); */
         let currentArrayListTasks = arrayListTasks.splice(indexCurrent, 1);
-        console.log(currentArrayListTasks);
-        console.log(arrayListTasks);
         refreshTasksWithLocalStorage(arrayListTasks);
     })
 }
