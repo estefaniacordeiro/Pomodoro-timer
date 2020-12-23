@@ -12,7 +12,6 @@ let startButton = document.getElementById('time__start-button');
 pomodoro.addEventListener('click', chooseOptionsTimer);
 shortBreak.addEventListener('click', chooseOptionsTimer);
 longBreak.addEventListener('click', chooseOptionsTimer);
-startButton.addEventListener('click', timeHandler);
 
 /******* Variables  *******/
 // Declaring variable of interval of time (pomodoro = 25 minutes)
@@ -53,6 +52,7 @@ document.getElementById('time__display').innerHTML = `
 
 function onTimesUp() {
     clearInterval(timeInterval);
+    startButton.innerText = "START";
 }
 
 function startTime() {
@@ -82,6 +82,10 @@ function formatTime(time) {
         if(seconds < 10) {
             seconds = `0${seconds}`;
         }
+    } else {
+        if(seconds < 10) {
+            seconds = `0${seconds}`;
+        }
     }
     // The output in MM:SS format.
     return `${minutes}:${seconds}`;
@@ -104,11 +108,8 @@ function setCircleDasharray() {
 
 //Options that you choose for countdown (pomodoro, short break and long break)
 function chooseOptionsTimer(e) {
-    console.log(e);
-    let listButtons = [...e.path[1].children];
-    console.log(listButtons);
+    startButton.addEventListener('click', timeHandler);
     let idButton = e.target.id;
-    console.log(idButton);
     switch(idButton) {
         case "pomodoro-button":
             e.path[3].children[1].children[0].children[0].children[1].innerText = "25:00";
@@ -119,7 +120,7 @@ function chooseOptionsTimer(e) {
         case "shortBreak-button":
             e.path[3].children[1].children[0].children[0].children[1].innerText = "05:00";
             e.path[3].children[1].children[2].innerText = "Coffee break!";
-            time = 0.1;
+            time = 5;
             timeLimit = time * 60;
             break;
         case "longBreak-button":
@@ -133,17 +134,16 @@ function chooseOptionsTimer(e) {
 
 //When the button "pomodoro" will clicked, will run this function
 function timeHandler(e, timeLimit) {
-    console.log(e);
+    console.log({e});
     if(startButton.innerText == "START"){
         startTime(timeLimit);
         startButton.style.backgroundColor = "rgb(233, 197, 37)";
         startButton.innerText = "STOP";
     }
     else if(startButton.innerText == "STOP"){
-        console.log(startButton);
-        startTime(timeLimit);
+        timePassed = 0;
+        clearInterval(timeInterval);
         startButton.style.backgroundColor = "#FFE46B";
         startButton.innerText = "START";
-        clearInterval(timeInterval);
     }
 }
